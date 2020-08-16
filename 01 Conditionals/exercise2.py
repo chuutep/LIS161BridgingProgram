@@ -1,11 +1,11 @@
 hours = input("Enter hour: ")
-rate = input("Enter rate: ")
-
 try:
     hours = float(hours)
 except:
     print("Value error for hours")
     exit()
+
+rate = input("Enter rate: ")
 try:
     rate = float(rate)
 except:
