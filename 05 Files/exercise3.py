@@ -1,18 +1,16 @@
-filename = input("Enter filename: ")
-
-if filename == "na na boo boo":
-    print("NA NA BOO BOO TO YOU - You have been punk'd")
-    exit()
+fname = input('Enter file: ')
 
 try:
-    fhandle = open(filename)
-except:
-    print("File not found!")
+    if fname == "na na boo boo":
+        print("NA NA BOO BOO TO YOU - You have been punk'd!")
+        exit()
+    fhand = open(fname)
+except FileNotFoundError:
+    print("File not found:", fname)
     exit()
 
-subject_lines = 0
-for line in fhandle:
-    if line.startswith('subject'):
-        subject_lines += 1
-
-print("There were {sub} subject lines in {file}".format(sub=subject_lines,file=filename))
+count = 0
+for line in fhand:
+    if line.startswith('Subject:'):
+        count = count + 1
+print('There were', count, 'subject lines in', fname)
